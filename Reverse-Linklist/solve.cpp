@@ -6,7 +6,7 @@ using namespace std;
 //Brute force 
 // Node class represents a
 // node in a linked list
-class Node {
+/*class Node {
 public:
     // Data stored in the node
     int data;   
@@ -84,11 +84,53 @@ void printLinkedList(Node* head) {
         temp = temp->next;
     }
     cout << endl;
-}
+}*/
 //TC: O(2N)
 //SC:O(N)
 //------------------------------------------------------------------------------
+class Node {
+public:
+    // Data stored in the node
+    int data;   
+    
+    // Pointer to the next node in the list
+    Node* next;      
 
+    // Constructor with both data and
+    // next node as parameters
+    Node(int data1, Node* next1) {
+        data = data1;
+        next = next1;
+    }
+
+    // Constructor with only data as a
+    // parameter, sets next to nullptr
+    Node(int data1) {
+        data = data1;
+        next = nullptr;
+    }
+};
+    Node*reverseLinkedList(Node*head){
+        Node*newHead = NULL;
+        while(head !=NULL){
+    Node*next = head->next;
+        
+        head->next = newHead;
+        newHead = head;
+        head = next;
+        
+    }
+    return newHead;
+    }
+
+void printLinkedList(Node* head) {
+    Node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+}
 
 int main() {
     // Create a linked list with
